@@ -263,7 +263,8 @@
 </li>
 </ol>
 <p>综合 $3$ 种情况，得：</p>
-<script type="math/tex; mode=display">F_n=\left(\sum_{i=0}^{n-1}F_i\right)+\left(\sum_{i=0}^{n-3}F_i \right)</script><h3 id="代码的优化"><a href="#代码的优化" class="headerlink" title="代码的优化"></a>代码的优化</h3><p>如果每次都重新算前 $n-1$ 个方案总和，很明显会超时。当然很容易能想到前缀和：</p>
+<script type="math/tex; mode=display">
+F_n=\left(\sum_{i=0}^{n-1}F_i\right)+\left(\sum_{i=0}^{n-3}F_i \right)</script><h3 id="代码的优化"><a href="#代码的优化" class="headerlink" title="代码的优化"></a>代码的优化</h3><p>如果每次都重新算前 $n-1$ 个方案总和，很明显会超时。当然很容易能想到前缀和：</p>
 <p>定义 $\texttt{preF}<em>n=\sum</em>{i=0}^{n}F<em>i$，即前 $n$ 个方案数之和。对于 $k&lt;0$，$\texttt{preF}_k=0$。很明显得出 $\texttt{preF}_n=\texttt{preF}</em>{n-1}+F_n$。</p>
 <p>那么之前的式子可以变成：</p>
 <script type="math/tex; mode=display">F_n=\texttt{preF}_{n-1}+\texttt{preF}_{n-3}</script><h4 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h4><p>接着就<del>愉快</del>地写代码：</p>
