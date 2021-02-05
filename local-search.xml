@@ -4,6 +4,25 @@
   
   
   <entry>
+    <title>编写指北</title>
+    <link href="/2021/02/05/%E7%BC%96%E5%86%99%E6%8C%87%E5%8C%97/"/>
+    <url>/2021/02/05/%E7%BC%96%E5%86%99%E6%8C%87%E5%8C%97/</url>
+    
+    <content type="html"><![CDATA[<h4 id="启用公式"><a href="#启用公式" class="headerlink" title="启用公式"></a>启用公式</h4><ul><li>参考 <a href="https://yangxudong.github.io/math-in-hexo/">https://yangxudong.github.io/math-in-hexo/</a><ul><li>若使用公式，在 <code>Front-matter</code> 中添加 <code>math: true</code>。</li></ul></li></ul>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>Special</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>题解-覆盖墙壁[LGP1990]</title>
     <link href="/2021/02/05/%E9%A2%98%E8%A7%A3-%E8%A6%86%E7%9B%96%E5%A2%99%E5%A3%81-LGP1990/"/>
     <url>/2021/02/05/%E9%A2%98%E8%A7%A3-%E8%A6%86%E7%9B%96%E5%A2%99%E5%A3%81-LGP1990/</url>

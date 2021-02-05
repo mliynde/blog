@@ -17,7 +17,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
   <meta name="keywords" content="">
-  <title>题解-覆盖墙壁[LGP1990] - LighterBlog | Hexo</title>
+  <title>编写指北 - LighterBlog | Hexo</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
@@ -166,7 +166,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="题解-覆盖墙壁[LGP1990]">
+            <span class="h2" id="subtitle" title="编写指北">
               
             </span>
 
@@ -176,7 +176,7 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2021-02-05 20:06" pubdate>
+      <time datetime="2021-02-05 21:26" pubdate>
         2021年2月5日 晚上
       </time>
     </span>
@@ -188,7 +188,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      900 字
+      26 字
     </span>
   
 
@@ -198,7 +198,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      12
+      1
        分钟
     </span>
   
@@ -228,65 +228,15 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">题解-覆盖墙壁[LGP1990]</h1>
+            <h1 style="display: none">编写指北</h1>
             
             <div class="markdown-body">
-              <blockquote>
-<p>Origin posted on 2020-03-27 15:49:09 ，<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/blog/222223/solution-p1990">题解 P1990 【覆盖墙壁】</a>，Luogu</p>
-</blockquote>
-<h3 id="题意的简述"><a href="#题意的简述" class="headerlink" title="题意的简述"></a>题意的简述</h3><p>用如下两种砖块（可旋转）填充 $2\times n$ 的墙壁，求出不重复方案数，结果对 $10^4$ 取模。</p>
-<p><img src="/image_hosting/m7vipknd.png" srcset="/img/loading.gif" alt=""></p>
-<h3 id="递推的思路"><a href="#递推的思路" class="headerlink" title="递推的思路"></a>递推的思路</h3><p>按照惯例，定义 $F_n$ 为填满 $2\times n$ 墙壁的方案总数，边界条件 $F_0 = 1$，对于 $k&lt;0$，$F_k=0$。<br>（$F_0$ 表示无需再填，$F_k(k&lt;0)$ 表示无意义情况）</p>
-<p>考虑最后放的情况：</p>
-<ol>
-<li><p>放 $1$ 个 $2\times 1$ 的砖块（竖放）</p>
-<ul>
-<li>显然它的方案数为 $F_{n-1}$；（图 1）</li>
-</ul>
-</li>
-<li><p>放 $2$ 个 $2\times 1$ 的砖块（横放）</p>
-<ul>
-<li>方案数为 $F_{n-2}$；（图 2）</li>
-</ul>
-</li>
-<li><p>放 $1$ 个 L 型砖块（因为该砖块可以翻转着放，所以这样放的总方案数要 <strong>乘</strong>  $2$）</p>
-<ul>
-<li>这么填会带来 $1$ 个格子的突出。如何消去这个突出？<ul>
-<li>再放 $1$ 个 L 型砖块，恰好消去突出，方案数 $F_{n-3}$；（图 3-1）</li>
-<li>横放 $1$ 个 $2\times 1$ 的砖块，再放 $1$ 个 L 型砖块，方案数 $F_{n-4}$（图 3-2）；</li>
-<li>$2\times 1$ 的砖块可以交替着放下去，再补上一个 L 型砖块，从而消去这个突出。</li>
-<li>直到 $2\times 1$ 砖块和 L 型砖块恰好填满墙壁（$F_0$）。</li>
+              <h4 id="启用公式"><a href="#启用公式" class="headerlink" title="启用公式"></a>启用公式</h4><ul>
+<li>参考 <a target="_blank" rel="noopener" href="https://yangxudong.github.io/math-in-hexo/">https://yangxudong.github.io/math-in-hexo/</a><ul>
+<li>若使用公式，在 <code>Front-matter</code> 中添加 <code>math: true</code>。</li>
 </ul>
 </li>
 </ul>
-<p>于是最后放 $1$ 个 L 型砖块得到的方案数为 $2\times (F_{n-3}+F_{n-4}+\cdots+F_{0})$。</p>
-</li>
-</ol>
-<p>综合 $3$ 种情况，得：</p>
-<script type="math/tex; mode=display">
-F_n=\left(\sum_{i=0}^{n-1}F_i\right)+\left(\sum_{i=0}^{n-3}F_i \right)</script><h3 id="代码的优化"><a href="#代码的优化" class="headerlink" title="代码的优化"></a>代码的优化</h3><p>如果每次都重新算前 $n-1$ 个方案总和，很明显会超时。当然很容易能想到前缀和：</p>
-<p>定义 $\texttt{preF}_n=\sum_{i=0}^{n}F_i$，即前 $n$ 个方案数之和。对于 $k&lt;0$，$\texttt{preF}_k=0$。很明显得出 $\texttt{preF}_n=\texttt{preF}_{n-1}+F_n$。</p>
-<p>那么之前的式子可以变成：</p>
-<script type="math/tex; mode=display">F_n=\texttt{preF}_{n-1}+\texttt{preF}_{n-3}</script><h4 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h4><p>接着就<del>愉快</del>地写代码：</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;bits/stdc++.h&gt;</span></span><br><span class="hljs-keyword">int</span> F[<span class="hljs-number">1000010</span>];				<span class="hljs-comment">//方案数</span><br><span class="hljs-keyword">int</span> preF[<span class="hljs-number">1000010</span>];			<span class="hljs-comment">//前缀和</span><br><span class="hljs-keyword">int</span> n;<br><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span>&#123;<br>	<span class="hljs-built_in">std</span>::<span class="hljs-built_in">cin</span> &gt;&gt; n;<br>	F[<span class="hljs-number">0</span>] = <span class="hljs-number">1</span>;<br>	preF[<span class="hljs-number">0</span>]=<span class="hljs-number">1</span>;<br>	<span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i=<span class="hljs-number">1</span>; i&lt;=n; i++)&#123;<br>		F[i]=(i<span class="hljs-number">-1</span>&lt;<span class="hljs-number">0</span>?<span class="hljs-number">0</span>:preF[i<span class="hljs-number">-1</span>])+(i<span class="hljs-number">-3</span>&lt;<span class="hljs-number">0</span>?<span class="hljs-number">0</span>:preF[i<span class="hljs-number">-3</span>]); 	<span class="hljs-comment">//递推，特判 k&lt;0 的情况</span><br>		F[i] %= <span class="hljs-number">10000</span>;									<span class="hljs-comment">//保留后 4 位</span><br>		preF[i] = preF[i<span class="hljs-number">-1</span>]+F[i];						<span class="hljs-comment">//更新前缀和</span><br>		preF[i] %= <span class="hljs-number">10000</span>;<br>	&#125;<br>	<span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; F[n] &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;		<span class="hljs-comment">//直接输出就行了</span><br>	<span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
-<p>附图（从上到下为图 1，图 2，图 3-1，图 3-2）：</p>
-<p><img src="/image_hosting/wehhuvjg.png" srcset="/img/loading.gif" alt=""></p>
-<h3 id="2020-08-30-更新"><a href="#2020-08-30-更新" class="headerlink" title="2020/08/30 更新"></a>2020/08/30 更新</h3><p>来自<a target="_blank" rel="noopener" href="https://167010.blog.luogu.org/solution-p1990">楼上玄学题解</a>很久以前的评论：</p>
-<blockquote>
-<p><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/user/41922">Gasai</a> At 2020-07-15 20:11:12</p>
-<p>其实跟下面那个递推式是等价的，下面那个 fn=西格玛0到n-3 fi +西格玛0到n-1 fi。另n等于n-1,得到二式，一式减二式就得到fn=2f (i-1) +f(i-3)</p>
-<blockquote>
-<p><del>原文如此</del></p>
-</blockquote>
-</blockquote>
-<p>注意到计算 $F_k$ 和 $F_{k-1}$ 时都加上了许多相同的部分。</p>
-<p>令 $n=k$，得</p>
-<script type="math/tex; mode=display">F_k=\left(\sum_{i=0}^{k-1}F_i\right)+\left(\sum_{i=0}^{k-3}F_i \right) =F_{k-1}+F_{k-2}+2\cdot F_{k-3} +2\cdot \left(\sum_{i=0}^{k-4}F_i \right).</script><p>令 $n=k-1$，得 </p>
-<script type="math/tex; mode=display">F_{k-1} = \left(\sum_{i=0}^{k-2}F_i\right)+\left(\sum_{i=0}^{k-4}F_i \right) = F_{k-2}+F_{k-3}+2\cdot \left(\sum_{i=0}^{k-4}F_i \right).</script><p>（相同的部分是什么应该能看清吧……）</p>
-<p>上式减去下式，得到 $F_k - F_{k-1} = F_{k-1}+F_{k-3}$，</p>
-<p>移项就得到 $F_k = 2\cdot F_{k-1}+F_{k-3}$。</p>
-<p>于是这个递推式就得到化简了。</p>
-<script type="math/tex; mode=display">F_n=\left(\sum_{i=0}^{n-1}F_i\right)+\left(\sum_{i=0}^{n-3}F_i \right)=2\cdot F_{n-1}+F_{n-3}.</script><p>于是这篇题解更新完了。</p>
 
             </div>
             <hr>
@@ -297,7 +247,7 @@ F_n=\left(\sum_{i=0}^{n-1}F_i\right)+\left(\sum_{i=0}^{n-3}F_i \right)</script><
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/tags/Solution/">Solution</a>
+                      <a class="hover-with-bg" href="/tags/Special/">Special</a>
                     
                   </div>
                 
@@ -310,18 +260,12 @@ F_n=\left(\sum_{i=0}^{n-1}F_i\right)+\left(\sum_{i=0}^{n-3}F_i \right)</script><
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2021/02/05/%E7%BC%96%E5%86%99%E6%8C%87%E5%8C%97/">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">编写指北</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2021/02/05/about/">
-                        <span class="hidden-mobile">About</span>
+                      <a href="/2021/02/05/%E9%A2%98%E8%A7%A3-%E8%A6%86%E7%9B%96%E5%A2%99%E5%A3%81-LGP1990/">
+                        <span class="hidden-mobile">题解-覆盖墙壁[LGP1990]</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
