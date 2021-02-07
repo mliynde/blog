@@ -188,7 +188,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      105 字
+      187 字
     </span>
   
 
@@ -222,12 +222,24 @@
             <h1 style="display: none">编写指北</h1>
             
             <div class="markdown-body">
-              <h4 id="启用公式"><a href="#启用公式" class="headerlink" title="启用公式"></a>启用公式</h4><ul>
-<li>参考 <a target="_blank" rel="noopener" href="https://yangxudong.github.io/math-in-hexo/">https://yangxudong.github.io/math-in-hexo/</a><ul>
+              <h4 id="公式"><a href="#公式" class="headerlink" title="公式"></a>公式</h4><ul>
+<li>启用：参考 <a target="_blank" rel="noopener" href="https://yangxudong.github.io/math-in-hexo/">https://yangxudong.github.io/math-in-hexo/</a><ul>
 <li>若使用公式，在 <code>Front-matter</code> 中添加 <code>math: true</code>。</li>
 </ul>
 </li>
 </ul>
+
+
+- 敏感内容：参考 https://blog.csdn.net/zhangguoliu/article/details/107074037
+  - 用`{ { } }`或`{ % % }`包装的内容将被解析，并可能导致问题。
+  
+  - `{ {`和`} }`之间加上空格变成`{ {`和`} }` （这里看不出区别，知道这个意思就行…） `{ %`和`% }`之间加上空格变成`{ %`和`% }`
+  
+  - 或者这样修改：
+    
+    ![](https://i.loli.net/2021/02/07/tMjYpqo6dcFWRSZ.png)
+
+
 <h4 id="图片"><a href="#图片" class="headerlink" title="图片"></a>图片</h4><ul>
 <li>页面默认顶部大图<ul>
 <li>主题页面中的 <code>banner-img</code></li>
