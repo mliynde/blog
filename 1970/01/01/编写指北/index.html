@@ -176,8 +176,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="1970-01-01 00:00" pubdate>
-        1970年1月1日 凌晨
+      <time datetime="1970-01-01 08:00" pubdate>
+        1970年1月1日 早上
       </time>
     </span>
   
@@ -188,7 +188,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      76 字
+      105 字
     </span>
   
 
@@ -234,11 +234,21 @@
 </ul>
 </li>
 <li>文章首页封面图<ul>
-<li>文章开头 <code>Front-matter</code> 中的 <code>index_img</code></li>
+<li>文章开头 <code>Front-matter</code> 中的 <code>index_img</code><ul>
+<li><code>index_img: /img/example.png</code></li>
+<li><code>index_img: https://example.com/example.png</code></li>
+</ul>
+</li>
 </ul>
 </li>
 <li>文章页顶部大图<ul>
 <li>文章开头 <code>Front-matter</code> 中的 <code>banner_img</code></li>
+</ul>
+</li>
+</ul>
+<h4 id="隐藏文章"><a href="#隐藏文章" class="headerlink" title="隐藏文章"></a>隐藏文章</h4><ul>
+<li>文章开头 <code>Front-matter</code> 中的 <code>hide</code> 设置为 <code>true</code><ul>
+<li><code>hide: true</code></li>
 </ul>
 </li>
 </ul>
@@ -258,23 +268,6 @@
                 
               </div>
               
-              
-                <div class="post-prevnext">
-                  <article class="post-prev col-6">
-                    
-                    
-                      <a href="/2021/02/05/about/">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">About</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
-                  </article>
-                  <article class="post-next col-6">
-                    
-                    
-                  </article>
-                </div>
               
             </div>
 
