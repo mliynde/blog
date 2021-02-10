@@ -188,7 +188,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      178 字
+      196 字
     </span>
   
 
@@ -223,21 +223,22 @@
             
             <div class="markdown-body">
               <h3 id="公式"><a href="#公式" class="headerlink" title="公式"></a>公式</h3><ul>
-<li>启用：参考 <a target="_blank" rel="noopener" href="https://yangxudong.github.io/math-in-hexo/">https://yangxudong.github.io/math-in-hexo/</a><ul>
+<li><p>启用：参考 <a target="_blank" rel="noopener" href="https://yangxudong.github.io/math-in-hexo/">https://yangxudong.github.io/math-in-hexo/</a></p>
+<ul>
 <li>若使用公式，在 <code>Front-matter</code> 中添加 <code>math: true</code>。</li>
 </ul>
 </li>
+<li><p>敏感内容：参考 <a target="_blank" rel="noopener" href="https://blog.csdn.net/zhangguoliu/article/details/107074037">https://blog.csdn.net/zhangguoliu/article/details/107074037</a></p>
+<ul>
+<li><p>用<code>&#123; &#123; &#125; &#125;</code>或<code>&#123; % % &#125;</code>包装的内容将被解析，并可能导致问题。</p>
+</li>
+<li><p><code>&#123; &#123;</code>和<code>&#125; &#125;</code>之间加上空格变成<code>&#123; &#123;</code>和<code>&#125; &#125;</code> （这里看不出区别，知道这个意思就行…） <code>&#123; %</code>和<code>% &#125;</code>之间加上空格变成<code>&#123; %</code>和<code>% &#125;</code></p>
+</li>
+<li><p>或者这样修改：</p>
+</li>
 </ul>
-
-
-- 敏感内容：参考 https://blog.csdn.net/zhangguoliu/article/details/107074037
-  - 用`{ { } }`或`{ % % }`包装的内容将被解析，并可能导致问题。
-  
-  - `{ {`和`} }`之间加上空格变成`{ {`和`} }` （这里看不出区别，知道这个意思就行…） `{ %`和`% }`之间加上空格变成`{ %`和`% }`
-  
-  - 或者这样修改：
-
-
+</li>
+</ul>
 <p><img src="https://i.loli.net/2021/02/07/tMjYpqo6dcFWRSZ.png" srcset="/img/loading.gif" alt=""></p>
 <h3 id="图片"><a href="#图片" class="headerlink" title="图片"></a>图片</h3><ul>
 <li>页面默认顶部大图<ul>
