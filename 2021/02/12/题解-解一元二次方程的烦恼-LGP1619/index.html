@@ -1,0 +1,506 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <meta name="keywords" content="">
+  <title>题解-解一元二次方程的烦恼-LGP1619 - LighterBlog | Hexo</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.4.0/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"blog.lyer.xyz","root":"/","version":"1.8.7","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.3.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>Lyer.xyz</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                友链
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('https://i.loli.net/2021/02/12/gzfbGcBqjdruNeQ.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.5)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="题解-解一元二次方程的烦恼-LGP1619">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2021-02-12 09:56" pubdate>
+        2021年2月12日 上午
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      1.7k 字
+    </span>
+  
+
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">题解-解一元二次方程的烦恼-LGP1619</h1>
+            
+            <div class="markdown-body">
+              <blockquote>
+<p>Originally posted on 2020-03-18 00:20:49, <a target="_blank" rel="noopener" href="https://www.luogu.com.cn/blog/222223/solution-p1619">题解 P1619 【解一元二次方程的烦恼】</a>, Luogu.</p>
+<p>Problem Link: <a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P1619">LGP1619</a></p>
+</blockquote>
+<p>一道 <code>模拟EX</code> 题，里面牵扯到字符串读入，数字分离，判断素数，分解质因数，<del>但就是没有求解一元二次方程</del>。</p>
+<p>一道大的模拟题通常由多个小的算法组合成，所以先要把每个小的算法搞定。</p>
+<h3 id="输入输出-amp-分离数字"><a href="#输入输出-amp-分离数字" class="headerlink" title="输入输出 &amp; 分离数字"></a>输入输出 &amp; 分离数字</h3><p>奇葩的输入输出方式，每次先输出字符串且不换行，接着输入字符串。（STL 里的 <code>string</code> 是个好东西）</p>
+<p>从中分离数字。临时变量 <code>t</code> 记录分离出的数字，先初始化 <code>t=0</code>，从头到尾扫一遍，发现一个数字字符时，进行迭代：变量 <code>t</code> 乘 $10$ 再加上数字的值。字符串扫完，数字就分离出来了。</p>
+<p>题目要求输出该数字是否为素数，以及分解质因数的结果。注意输入输出要求（稍微改一下）：</p>
+<blockquote>
+<ol>
+<li>在读入数据之前先输出 <code>Enter the number=</code>，不要换行。读入数据完毕后换行。</li>
+<li>然后输出 <code>Prime?</code>，问号后有一个空格，但不要换行。</li>
+<li>如果这个数小于 $2$，输出 <code>No!</code>，此时换行，并进行下一轮读入。</li>
+<li>如果大于 $4\times 10^7$，输出 <code>No!</code> 并换行，再输出 <code>The number is too large!</code>并换行。（不必关心它是不是质数）</li>
+<li>否则，如果这个数是质数，输出 <code>Yes!</code> 并换行，进行下一轮读入。</li>
+<li>否则，输出 <code>No!</code> 并换行，输出分解质因数的结果。</li>
+<li>每组数据后再输出一个换行。</li>
+</ol>
+</blockquote>
+<p>一步一步满足就行了。对于数太大的情况，在分离数字的同时检查是否已经超过 $4\times 10^7$，如果超过，返回错误信息。</p>
+<p>顺便说一下，输入的字符串中间可能<strong>有空格</strong>！而直接用 <code>cin</code> 读入字符串是到空格为止的，所以读不进所有数据。不得不使用 <code>getline</code> 读入。</p>
+<p>输入输出的过程放在了主函数中：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span>&#123;<br><span class="hljs-comment">/*省略一些东西*/</span><br>    <span class="hljs-keyword">while</span>(<span class="hljs-number">1</span>)&#123;<br>		<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;Enter the number=&quot;</span>;<br>		getline(<span class="hljs-built_in">cin</span>,st);			<span class="hljs-comment">//因为有空格，不得不用 getline</span><br>		<span class="hljs-keyword">int</span> n = worknum(st);		<span class="hljs-comment">//分离数字（可能是错误信息）</span><br>		<span class="hljs-keyword">if</span>(n==EMPTY)&#123;				<span class="hljs-comment">//没有数字就结束</span><br>			<span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>		&#125;<br>		<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&#x27;\n&#x27;</span>;<br>		<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;Prime? &quot;</span>;<br>		<span class="hljs-keyword">if</span>(n==TOOBIG)&#123;				<span class="hljs-comment">//太大时的输出</span><br>			<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;No!&quot;</span> &lt;&lt; <span class="hljs-string">&#x27;\n&#x27;</span>;<br>			<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;The number is too large!&quot;</span> &lt;&lt; <span class="hljs-string">&#x27;\n&#x27;</span> ;<br>		&#125;<br>		<span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(n&lt;<span class="hljs-number">2</span>)&#123;				<span class="hljs-comment">//小于2的输出</span><br>			<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;No!&quot;</span> &lt;&lt; <span class="hljs-string">&#x27;\n&#x27;</span>;<br>		&#125;<br>		<span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(isprime[n]==<span class="hljs-literal">false</span>)&#123;	<span class="hljs-comment">//判断素数以及分解质因数</span><br>			<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;No!&quot;</span> &lt;&lt; <span class="hljs-string">&#x27;\n&#x27;</span>;<br>			divi(n);<br>		&#125;<br>		<span class="hljs-keyword">else</span>&#123;<br>			<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;Yes!&quot;</span> &lt;&lt; <span class="hljs-string">&#x27;\n&#x27;</span>;<br>		&#125;<br>		<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&#x27;\n&#x27;</span>;<br>	&#125;<br>	<span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>分离数字：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> TOOBIG=<span class="hljs-number">-1</span>, EMPTY=<span class="hljs-number">-3</span>;	<span class="hljs-comment">//标记错误类型</span><br><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">worknum</span><span class="hljs-params">(<span class="hljs-built_in">string</span> st)</span></span>&#123;<br>	<span class="hljs-keyword">int</span> num=<span class="hljs-number">0</span>;<br>	<span class="hljs-keyword">bool</span> getans=<span class="hljs-literal">false</span>;<br>	<span class="hljs-keyword">int</span> len=st.size();<br>	<span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i=<span class="hljs-number">0</span>; i&lt;len; i++)&#123;<br>		<span class="hljs-keyword">if</span>(st[i]&gt;=<span class="hljs-string">&#x27;0&#x27;</span>&amp;&amp;st[i]&lt;=<span class="hljs-string">&#x27;9&#x27;</span>)&#123;<br>			num = num*<span class="hljs-number">10</span>+st[i]-<span class="hljs-string">&#x27;0&#x27;</span>;<br>			getans = <span class="hljs-literal">true</span>;<br>			<span class="hljs-keyword">if</span>(num&gt;<span class="hljs-number">40000000</span>)&#123;<br>				<span class="hljs-keyword">return</span> TOOBIG;	<span class="hljs-comment">//数字太大</span><br>			&#125;<br>		&#125;<br>	&#125;<br>	<span class="hljs-keyword">if</span>(!getans)&#123;<br>		<span class="hljs-keyword">return</span> EMPTY;			<span class="hljs-comment">//没读到数字</span><br>	&#125;<br>	<span class="hljs-keyword">return</span> num;<br>&#125;<br></code></pre></td></tr></table></figure>
+<h3 id="判断素数"><a href="#判断素数" class="headerlink" title="判断素数"></a>判断素数</h3><p>可以用时间复杂度为 $O(\sqrt{n})$ 的方法判断一个数是否为素数，也可以进行线性筛素数（空间开销较大，时间复杂度为 $O(n)$，查找为 $O(1)$，空间复杂度 $O(n+m)$）。这里用线性筛素数：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-keyword">bool</span> isprime[<span class="hljs-number">40000010</span>];			<span class="hljs-comment">//标记数字是否为素数</span><br><span class="hljs-keyword">int</span> primelist[<span class="hljs-number">8000010</span>], pcnt;	<span class="hljs-comment">//素数表，还要用于分解质因数</span><br><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">workprime</span><span class="hljs-params">()</span></span>&#123;				<span class="hljs-comment">//线性筛素数</span><br>    <span class="hljs-built_in">memset</span>(isprime, <span class="hljs-literal">true</span>, <span class="hljs-keyword">sizeof</span>(isprime));<br>    isprime[<span class="hljs-number">0</span>]=isprime[<span class="hljs-number">1</span>]=<span class="hljs-literal">false</span>;<br>	<span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i=<span class="hljs-number">2</span>; i&lt;=<span class="hljs-number">40000000</span>; i++)&#123;<br>		<span class="hljs-keyword">if</span>(isprime[i])&#123;<br>			primelist[++pcnt] = i;<br>		&#125;<br>		<span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> j=<span class="hljs-number">1</span>; j&lt;=pcnt&amp;&amp;primelist[j]*i&lt;=<span class="hljs-number">40000000</span>; j++)&#123;<br>			isprime[primelist[j]*i] = <span class="hljs-literal">false</span>;<br>			<span class="hljs-keyword">if</span>(i%primelist[j]==<span class="hljs-number">0</span>)&#123;<br>				<span class="hljs-keyword">break</span>;<br>			&#125;<br>		&#125;<br>	&#125;<br>	<span class="hljs-keyword">return</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+<p><del>鉴于这题数据很水</del>，如果只是判断素数，用第一种方法更省时间。</p>
+<h3 id="分解质因数"><a href="#分解质因数" class="headerlink" title="分解质因数"></a>分解质因数</h3><p>之前不是有了素数表吗？直接用它来分解就行了。</p>
+<p>从最小的素数 $2$ 开始，如果当前素数能整除这个合数，那么这个素数指数加 $1$，直到不能整除，此时输出当前结果。指数为 $0$ 的当然不用输出，其余的以 <code>a^k</code> 的形式输出，如果不是第一项还要在前面补一个 <code>*</code>。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">divi</span><span class="hljs-params">(<span class="hljs-keyword">int</span> n)</span></span>&#123;<br>	<span class="hljs-keyword">bool</span> appeared=<span class="hljs-literal">false</span>;<br>	<span class="hljs-built_in">cout</span> &lt;&lt;  n &lt;&lt; <span class="hljs-string">&#x27;=&#x27;</span>;<br>	<span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i=<span class="hljs-number">1</span>; i&lt;=pcnt; i++)&#123;<br>		<span class="hljs-keyword">int</span> p=<span class="hljs-number">0</span>;<br>		<span class="hljs-keyword">while</span>(n%primelist[i]==<span class="hljs-number">0</span>&amp;&amp;n&gt;<span class="hljs-number">0</span>)&#123;			<span class="hljs-comment">//如果当前素数是合数的素因子（能整除）时</span><br>			p++;								<span class="hljs-comment">//指数加 1</span><br>			n /= primelist[i];<br>		&#125;<br>		<span class="hljs-keyword">if</span>(p&gt;<span class="hljs-number">0</span>)&#123;								<span class="hljs-comment">//指数非 0 时</span><br>			<span class="hljs-keyword">if</span>(appeared)<br>				<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&#x27;*&#x27;</span>;					<span class="hljs-comment">//前面有输出（即非首项）时补一个乘号</span><br>			<span class="hljs-built_in">cout</span> &lt;&lt; primelist[i] &lt;&lt; <span class="hljs-string">&#x27;^&#x27;</span> &lt;&lt; p;	<span class="hljs-comment">//输出当前结果</span><br>			appeared = <span class="hljs-literal">true</span>;<br>		&#125;<br>	&#125;<br>	<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&#x27;\n&#x27;</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+<h3 id="最终代码"><a href="#最终代码" class="headerlink" title="最终代码"></a>最终代码</h3><p>评测记录和<del>螈代码</del><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/record/31866108">戳这里</a>。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;string&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;cstring&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;iostream&gt;</span></span><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> <span class="hljs-built_in">std</span>;<br><br><span class="hljs-built_in">string</span> st;<br><span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> TOOBIG=<span class="hljs-number">-1</span>, EMPTY=<span class="hljs-number">-3</span>;<br><span class="hljs-keyword">bool</span> isprime[<span class="hljs-number">40000010</span>];<br><span class="hljs-keyword">int</span> primelist[<span class="hljs-number">8000010</span>], pcnt;<br><br><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">worknum</span><span class="hljs-params">(<span class="hljs-built_in">string</span> st)</span></span>&#123;<br>	<span class="hljs-keyword">int</span> num=<span class="hljs-number">0</span>;<br>	<span class="hljs-keyword">bool</span> getans=<span class="hljs-literal">false</span>;<br>	<span class="hljs-keyword">int</span> len=st.size();<br>	<span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i=<span class="hljs-number">0</span>; i&lt;len; i++)&#123;<br>		<span class="hljs-keyword">if</span>(st[i]&gt;=<span class="hljs-string">&#x27;0&#x27;</span>&amp;&amp;st[i]&lt;=<span class="hljs-string">&#x27;9&#x27;</span>)&#123;<br>			num = num*<span class="hljs-number">10</span>+st[i]-<span class="hljs-string">&#x27;0&#x27;</span>;<br>			getans = <span class="hljs-literal">true</span>;<br>			<span class="hljs-keyword">if</span>(num&gt;<span class="hljs-number">40000000</span>)&#123;<br>				<span class="hljs-keyword">return</span> TOOBIG;<br>			&#125;<br>		&#125;<br>	&#125;<br>	<span class="hljs-keyword">if</span>(!getans)&#123;<br>		<span class="hljs-keyword">return</span> EMPTY;<br>	&#125;<br>	<span class="hljs-keyword">return</span> num;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">workprime</span><span class="hljs-params">()</span></span>&#123;<br>	<span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i=<span class="hljs-number">2</span>; i&lt;=<span class="hljs-number">40000000</span>; i++)&#123;<br>		<span class="hljs-keyword">if</span>(isprime[i])&#123;<br>			primelist[++pcnt] = i;<br>		&#125;<br>		<span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> j=<span class="hljs-number">1</span>; j&lt;=pcnt&amp;&amp;primelist[j]*i&lt;=<span class="hljs-number">40000000</span>; j++)&#123;<br>			isprime[primelist[j]*i] = <span class="hljs-literal">false</span>;<br>			<span class="hljs-keyword">if</span>(i%primelist[j]==<span class="hljs-number">0</span>)&#123;<br>				<span class="hljs-keyword">break</span>;<br>			&#125;<br>		&#125;<br>	&#125;<br>	<span class="hljs-keyword">return</span>;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">divi</span><span class="hljs-params">(<span class="hljs-keyword">int</span> n)</span></span>&#123;<br>	<span class="hljs-keyword">bool</span> appeared=<span class="hljs-literal">false</span>;<br>	<span class="hljs-built_in">cout</span> &lt;&lt;  n &lt;&lt; <span class="hljs-string">&#x27;=&#x27;</span>;<br>	<span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i=<span class="hljs-number">1</span>; i&lt;=pcnt; i++)&#123;<br>		<span class="hljs-keyword">int</span> p=<span class="hljs-number">0</span>;<br>		<span class="hljs-keyword">while</span>(n%primelist[i]==<span class="hljs-number">0</span>&amp;&amp;n&gt;<span class="hljs-number">0</span>)&#123;<br>			p++;<br>			n /= primelist[i];<br>		&#125;<br>		<span class="hljs-keyword">if</span>(p&gt;<span class="hljs-number">0</span>)&#123;<br>			<span class="hljs-keyword">if</span>(appeared)<br>				<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&#x27;*&#x27;</span>;	<br>			<span class="hljs-built_in">cout</span> &lt;&lt; primelist[i] &lt;&lt; <span class="hljs-string">&#x27;^&#x27;</span> &lt;&lt; p;<br>			appeared = <span class="hljs-literal">true</span>;<br>		&#125;<br>		<br>	&#125;<br>	<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&#x27;\n&#x27;</span>;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span>&#123;<br>	<span class="hljs-built_in">memset</span>(isprime, <span class="hljs-literal">true</span>, <span class="hljs-keyword">sizeof</span>(isprime));<br>	isprime[<span class="hljs-number">0</span>]=isprime[<span class="hljs-number">1</span>]=<span class="hljs-literal">false</span>;<br>	workprime();<br>	ios::sync_with_stdio(<span class="hljs-literal">false</span>);<br>	<span class="hljs-keyword">while</span>(<span class="hljs-number">1</span>)&#123;<br>		<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;Enter the number=&quot;</span>;<br>		getline(<span class="hljs-built_in">cin</span>,st);<br>		<span class="hljs-keyword">int</span> n = worknum(st);<br>		<span class="hljs-keyword">if</span>(n==EMPTY)&#123;<br>			<span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>		&#125;<br>		<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&#x27;\n&#x27;</span>;<br>		<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;Prime? &quot;</span>;<br>		<span class="hljs-keyword">if</span>(n==TOOBIG)&#123;<br>			<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;No!&quot;</span> &lt;&lt; <span class="hljs-string">&#x27;\n&#x27;</span>;<br>			<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;The number is too large!&quot;</span> &lt;&lt; <span class="hljs-string">&#x27;\n&#x27;</span> ;<br>		&#125;<br>		<span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(n&lt;<span class="hljs-number">2</span>)&#123;<br>			<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;No!&quot;</span> &lt;&lt; <span class="hljs-string">&#x27;\n&#x27;</span>;<br>		&#125;<br>		<span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(isprime[n]==<span class="hljs-literal">false</span>)&#123;<br>			<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;No!&quot;</span> &lt;&lt; <span class="hljs-string">&#x27;\n&#x27;</span>;<br>			divi(n);<br>		&#125;<br>		<span class="hljs-keyword">else</span>&#123;<br>			<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;Yes!&quot;</span> &lt;&lt; <span class="hljs-string">&#x27;\n&#x27;</span>;<br>		&#125;<br>		<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&#x27;\n&#x27;</span>;<br>	&#125;<br>	<span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+<h3 id="DEBUG"><a href="#DEBUG" class="headerlink" title="DEBUG"></a>DEBUG</h3><ul>
+<li>把线性筛素数写爆了，竟然多乘了个数字。</li>
+<li>第一次提交爆零，字母大小写出错。</li>
+<li>第二次 WA 5 个点，因为 <code>cin</code> 读入跳过了空格，出错。</li>
+<li>第三次 WA 2 个点，忘记特判 $n&lt;2$ 的情况。</li>
+<li>第四次 AC。</li>
+</ul>
+<p>到这就结束了。</p>
+<h3 id="Trivia"><a href="#Trivia" class="headerlink" title="Trivia"></a>Trivia</h3><p><del>这题没有蓝题的难度吧。</del></p>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/Solution/">Solution</a>
+                    
+                  </div>
+                
+              </div>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2021/02/12/%E9%A2%98%E8%A7%A3-Binary%20String%20To%20Subsequences-CF1399D/">
+                        <span class="hidden-mobile">题解-Binary String To Subsequences-CF1399D</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://lyer.xyz" target="_blank" rel="nofollow noopener"><span>LyerLighter</span></a> <i class="iconfont icon-love"></i> <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> <div> <span id="timeDate">载入天数...</span> <span id="times">载入时分秒...</span> <script src="/js/duration.js"></script> </div> 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+<!-- SCRIPTS -->
+
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.0/dist/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js" ></script>
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    (function () {
+      var path = "/local-search.xml";
+      var inputArea = document.querySelector("#local-search-input");
+      inputArea.onclick = function () {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+        this.onclick = null
+      }
+    })()
+  </script>
+
+
+
+
+
+  
+
+  
+    <!-- MathJax -->
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']]
+        },
+        options: {
+          renderActions: {
+            findScript: [10, doc => {
+              document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                const display = !!node.type.match(/; *mode=display/);
+                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                const text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = { node: text, delim: '', n: 0 };
+                math.end = { node: text, delim: '', n: 0 };
+                doc.math.push(math);
+              });
+            }, '', false],
+            insertedScript: [200, () => {
+              document.querySelectorAll('mjx-container').forEach(node => {
+                let target = node.parentNode;
+                if (target.nodeName.toLowerCase() === 'li') {
+                  target.parentNode.classList.add('has-jax');
+                }
+              });
+            }, '', false]
+          }
+        }
+      };
+    </script>
+
+    <script async src="https://cdn.jsdelivr.net/npm/mathjax@3.1.2/es5/tex-svg.js" ></script>
+
+  
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+
+</body>
+</html>
