@@ -13,7 +13,7 @@
         content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
-  <meta name="theme-color" content="#2f4154">
+  <meta name="theme-color" content="#FF83FA">
   <meta name="description" content="">
   <meta name="author" content="">
   <meta name="keywords" content="">
@@ -39,7 +39,7 @@
 
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
-    var CONFIG = {"hostname":"blog.lyer.xyz","root":"/","version":"1.8.7","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
+    var CONFIG = {"hostname":"blog.lyer.xyz","root":"/","version":"1.8.7","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":4,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
   </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
@@ -145,7 +145,7 @@
 </nav>
 
     <div class="banner" id="banner" parallax=true
-         style="background: url('https://i.loli.net/2021/02/12/gzfbGcBqjdruNeQ.png') no-repeat center center;
+         style="background: url('https://api.iqianye.cn/get/get_random_image.php?imagetype=mc&displaytype=view') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.5)">
@@ -175,13 +175,19 @@
                 
 
 <div class="list-group">
-  <p class="h4">共计 10 篇文章</p>
+  <p class="h4">共计 11 篇文章</p>
   <hr>
   
   
     
       
       <p class="h5">2021</p>
+    
+    <a href="/2021/02/17/%E4%B8%80%E4%BA%9B%E6%95%B0%E5%AD%A6%E6%A8%A1%E6%9D%BF%E9%A2%98/" class="list-group-item list-group-item-action">
+      <span class="archive-post-title">一些数学模板题</span>
+      <time style="float: right;">02-17</time>
+    </a>
+  
     
     <a href="/2021/02/14/%E5%85%B3%E4%BA%8E%E4%B8%89%E6%96%9C%E6%B1%82%E7%A7%AF%E6%9C%AF/" class="list-group-item list-group-item-action">
       <span class="archive-post-title">关于三斜求积术</span>
@@ -236,14 +242,20 @@
       <time style="float: right;">02-06</time>
     </a>
   
-    
-    <a href="/2021/02/05/%E9%A2%98%E8%A7%A3-%E8%A6%86%E7%9B%96%E5%A2%99%E5%A3%81-LGP1990/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">题解-覆盖墙壁[LGP1990]</span>
-      <time style="float: right;">02-05</time>
-    </a>
-  
 </div>
 
+
+  <nav aria-label="navigation">
+    <span class="pagination" id="pagination">
+      <span class="page-number current">1</span><a class="page-number" href="/archives/2021/page/2/">2</a><a class="extend next" rel="next" href="/archives/2021/page/2/"><i class="iconfont icon-arrowright"></i></a>
+    </span>
+  </nav>
+  
+  <script>
+    for (ele of document.getElementById("pagination").getElementsByTagName("a")) {
+      ele.href += '#board';
+    }
+  </script>
 
 
 
